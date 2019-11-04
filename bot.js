@@ -115,6 +115,7 @@ function retweetDog() {
 	});
 }
 
+// This function finds the latest tweet with the #puppy hashtag, and retweets it.
 function retweetPuppy() {
 	T.get('search/tweets', puppySearch, function (error, data) {
 	  // log out any errors and responses
@@ -140,7 +141,7 @@ function retweetPuppy() {
 	  }
 	});
 }
-
+// This function finds the latest tweet with the #parrot hashtag, and retweets it.
 function retweetParrot() {
 	T.get('search/tweets', parrotSearch, function (error, data) {
 	  // log out any errors and responses
@@ -166,7 +167,7 @@ function retweetParrot() {
 	  }
 	});
 }
-
+// This function finds the latest tweet with the #turtle hashtag, and retweets it.
 function retweetTurtle() {
 	T.get('search/tweets', turtleSearch, function (error, data) {
 	  // log out any errors and responses
@@ -192,7 +193,7 @@ function retweetTurtle() {
 	  }
 	});
 }
-
+// This function finds the latest tweet with the #ferret hashtag, and retweets it.
 function retweetFerret() {
 	T.get('search/tweets', ferretSearch, function (error, data) {
 	  // log out any errors and responses
@@ -218,7 +219,7 @@ function retweetFerret() {
 	  }
 	});
 }
-
+// This function finds the latest tweet with the #bird hashtag, and retweets it.
 function retweetBird() {
 	T.get('search/tweets', birdSearch, function (error, data) {
 	  // log out any errors and responses
@@ -244,7 +245,7 @@ function retweetBird() {
 	  }
 	});
 }
-
+// This function finds the latest tweet with the #hamster hashtag, and retweets it.
 function retweetHamster() {
 	T.get('search/tweets', hamsterSearch, function (error, data) {
 	  // log out any errors and responses
@@ -270,7 +271,7 @@ function retweetHamster() {
 	  }
 	});
 }
-
+// This function finds the latest tweet with the #snake hashtag, and retweets it.
 function retweetSnake() {
 	T.get('search/tweets', snakeSearch, function (error, data) {
 	  // log out any errors and responses
