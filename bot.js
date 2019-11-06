@@ -14,25 +14,7 @@ var kittenSearch = {q: "#kitten", count: 10, result_type: "recent"};
 var dogSearch = {q: "#dog", count: 10, result_type: "recent"}; 
 
 // This is the URL of a search for the latest tweets on the '#puppy' hashtag.
-var puppySearch = {q: "#puppy", count: 10, result_type: "recent"};
-
-// This is the URL of a search for the latest tweets on the '#puppy' hashtag.
-var parrotSearch = {q: "#parrot", count: 10, result_type: "recent"};
-
-// This is the URL of a search for the latest tweets on the '#puppy' hashtag.
-var turtleSearch = {q: "#turtle", count: 10, result_type: "recent"};
-
-// This is the URL of a search for the latest tweets on the '#puppy' hashtag.
-var ferretSearch = {q: "#ferret", count: 10, result_type: "recent"};
-
-// This is the URL of a search for the latest tweets on the '#puppy' hashtag.
-var birdSearch = {q: "#bird", count: 10, result_type: "recent"};
-
-// This is the URL of a search for the latest tweets on the '#puppy' hashtag.
-var hamsterSearch = {q: "#hamster", count: 10, result_type: "recent"};
-
-// This is the URL of a search for the latest tweets on the '#puppy' hashtag.
-var snakeSearch = {q: "#snake", count: 10, result_type: "recent"};
+var puppySearch = {q: "#puppy", count: 10, result_type: "recent"}; 
 
 // This function finds the latest tweet with the #cats hashtag, and retweets it.
 function retweetCat() {
@@ -115,7 +97,6 @@ function retweetDog() {
 	});
 }
 
-// This function finds the latest tweet with the #puppy hashtag, and retweets it.
 function retweetPuppy() {
 	T.get('search/tweets', puppySearch, function (error, data) {
 	  // log out any errors and responses
@@ -141,162 +122,7 @@ function retweetPuppy() {
 	  }
 	});
 }
-// This function finds the latest tweet with the #parrot hashtag, and retweets it.
-function retweetParrot() {
-	T.get('search/tweets', parrotSearch, function (error, data) {
-	  // log out any errors and responses
-	  console.log(error, data);
-	  // If our search request to the server had no errors...
-	  if (!error) {
-	  	// ...then we grab the ID of the tweet we want to retweet...
-		var retweetId = data.statuses[0].id_str;
-		// ...and then we tell Twitter we want to retweet it!
-		T.post('statuses/retweet/' + retweetId, { }, function (error, response) {
-			if (response) {
-				console.log('Success! Check your bot, it should have retweeted something.')
-			}
-			// If there was an error with our Twitter call, we print it out here.
-			if (error) {
-				console.log('There was an error with Twitter:', error);
-			}
-		})
-	  }
-	  // However, if our original search request had an error, we want to print it out here.
-	  else {
-	  	console.log('There was an error with your hashtag search:', error);
-	  }
-	});
-}
-// This function finds the latest tweet with the #turtle hashtag, and retweets it.
-function retweetTurtle() {
-	T.get('search/tweets', turtleSearch, function (error, data) {
-	  // log out any errors and responses
-	  console.log(error, data);
-	  // If our search request to the server had no errors...
-	  if (!error) {
-	  	// ...then we grab the ID of the tweet we want to retweet...
-		var retweetId = data.statuses[0].id_str;
-		// ...and then we tell Twitter we want to retweet it!
-		T.post('statuses/retweet/' + retweetId, { }, function (error, response) {
-			if (response) {
-				console.log('Success! Check your bot, it should have retweeted something.')
-			}
-			// If there was an error with our Twitter call, we print it out here.
-			if (error) {
-				console.log('There was an error with Twitter:', error);
-			}
-		})
-	  }
-	  // However, if our original search request had an error, we want to print it out here.
-	  else {
-	  	console.log('There was an error with your hashtag search:', error);
-	  }
-	});
-}
-// This function finds the latest tweet with the #ferret hashtag, and retweets it.
-function retweetFerret() {
-	T.get('search/tweets', ferretSearch, function (error, data) {
-	  // log out any errors and responses
-	  console.log(error, data);
-	  // If our search request to the server had no errors...
-	  if (!error) {
-	  	// ...then we grab the ID of the tweet we want to retweet...
-		var retweetId = data.statuses[0].id_str;
-		// ...and then we tell Twitter we want to retweet it!
-		T.post('statuses/retweet/' + retweetId, { }, function (error, response) {
-			if (response) {
-				console.log('Success! Check your bot, it should have retweeted something.')
-			}
-			// If there was an error with our Twitter call, we print it out here.
-			if (error) {
-				console.log('There was an error with Twitter:', error);
-			}
-		})
-	  }
-	  // However, if our original search request had an error, we want to print it out here.
-	  else {
-	  	console.log('There was an error with your hashtag search:', error);
-	  }
-	});
-}
-// This function finds the latest tweet with the #bird hashtag, and retweets it.
-function retweetBird() {
-	T.get('search/tweets', birdSearch, function (error, data) {
-	  // log out any errors and responses
-	  console.log(error, data);
-	  // If our search request to the server had no errors...
-	  if (!error) {
-	  	// ...then we grab the ID of the tweet we want to retweet...
-		var retweetId = data.statuses[0].id_str;
-		// ...and then we tell Twitter we want to retweet it!
-		T.post('statuses/retweet/' + retweetId, { }, function (error, response) {
-			if (response) {
-				console.log('Success! Check your bot, it should have retweeted something.')
-			}
-			// If there was an error with our Twitter call, we print it out here.
-			if (error) {
-				console.log('There was an error with Twitter:', error);
-			}
-		})
-	  }
-	  // However, if our original search request had an error, we want to print it out here.
-	  else {
-	  	console.log('There was an error with your hashtag search:', error);
-	  }
-	});
-}
-// This function finds the latest tweet with the #hamster hashtag, and retweets it.
-function retweetHamster() {
-	T.get('search/tweets', hamsterSearch, function (error, data) {
-	  // log out any errors and responses
-	  console.log(error, data);
-	  // If our search request to the server had no errors...
-	  if (!error) {
-	  	// ...then we grab the ID of the tweet we want to retweet...
-		var retweetId = data.statuses[0].id_str;
-		// ...and then we tell Twitter we want to retweet it!
-		T.post('statuses/retweet/' + retweetId, { }, function (error, response) {
-			if (response) {
-				console.log('Success! Check your bot, it should have retweeted something.')
-			}
-			// If there was an error with our Twitter call, we print it out here.
-			if (error) {
-				console.log('There was an error with Twitter:', error);
-			}
-		})
-	  }
-	  // However, if our original search request had an error, we want to print it out here.
-	  else {
-	  	console.log('There was an error with your hashtag search:', error);
-	  }
-	});
-}
-// This function finds the latest tweet with the #snake hashtag, and retweets it.
-function retweetSnake() {
-	T.get('search/tweets', snakeSearch, function (error, data) {
-	  // log out any errors and responses
-	  console.log(error, data);
-	  // If our search request to the server had no errors...
-	  if (!error) {
-	  	// ...then we grab the ID of the tweet we want to retweet...
-		var retweetId = data.statuses[0].id_str;
-		// ...and then we tell Twitter we want to retweet it!
-		T.post('statuses/retweet/' + retweetId, { }, function (error, response) {
-			if (response) {
-				console.log('Success! Check your bot, it should have retweeted something.')
-			}
-			// If there was an error with our Twitter call, we print it out here.
-			if (error) {
-				console.log('There was an error with Twitter:', error);
-			}
-		})
-	  }
-	  // However, if our original search request had an error, we want to print it out here.
-	  else {
-	  	console.log('There was an error with your hashtag search:', error);
-	  }
-	});
-}
+
 
 // DEBUG
 var debug = false;		// if we don't want it to post to Twitter! Useful for debugging!
@@ -331,6 +157,28 @@ Array.prototype.remove = function() {
 // Wordnik stuff
 function nounUrl(minCorpusCount, limit) {
 	return "http://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=false&includePartOfSpeech=noun&minCorpusCount=" + minCorpusCount + "&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&limit=" + limit + "&api_key=" + WordnikAPIKey;
+}
+
+//TODO: 
+var request = require("request");
+var API="ae92b91f8c12b23e540ed36c6a4dacc5902f0cc47e42482d6ef0b624b5f01ab0";
+var post;
+
+function runPicBot() {
+    request("https://api.unsplash.com/photos/random?query=cat&client_id=" + API, function(error, response,data) {
+        var json = JSON.parse(data);
+        // var text = pre.pick();
+        post = "I found some cat photos! /n" + json.links.html;
+        T.post('status/update', {status:post}, function(err, data, response) {
+			if (response) {
+				console.log('Success! Check your bot, it should have twittered photos.')
+			}
+			// If there was an error with our Twitter call, we print it out here.
+			if (error) {
+				console.log('There was an error with Twitter:', error);
+			}
+        })
+    })
 }
 
 // Post a status update
@@ -434,54 +282,37 @@ function runBot() {
             "Yet another distruction! My cat got into my " + nouns.pick().word + " today. Ripped it to shreds.",
             "Seriously I have had enough of Intro to " + capitalize(nouns.pick().word) + ". Can't we just look up pictures of cute baby animals?",
             "Who's coming to Club " + capitalize(singularize(nouns.pick().word)) + " tonight? I heard they will have puppies and " + pluralize(nouns.pick().word) + ".",
-            "Missed class again. Had to find a " + nouns.pick().word + " to appease my unreasonable parrot.", "If I throw a " + nouns.pick().word + " do you think my dog will chase after it?", "Do you think that cats dream about " + nouns.pick().word + " while they sleep all day?", "Uhhh, I don't think cats are supposed to eat " + nouns.pick().word + ".", "The world is ending! My ferret now has a " + nouns.pick().word + " and that means the end for us all.", "How many " + pluralize(nouns.pick().word) + " is too many for one pet fish?", "Just met my friend's new puppy, " + capitalize(nouns.pick().word) + ". So cute!", "My friend found a cat inside of a " + nouns.pick().word + " today. Don't think that was supposed to be there.", "Just bought a " + nouns.pick().word + " for my bird. I hope he likes it.", "Should I be concerned if my cat keeps bringing me " + nouns.pick().word + "?", capitalize(pluralize(nouns.pick().word)) + " are really the best toys for puppies.", "My dogs are always fighting over who gets to play with the " + nouns.pick().word, "I just discovered a new species of bat. They only eat " + nouns.pick().word
+            "Missed class again. Had to find a " + nouns.pick().word + " to appease my unreasonable parrot.", "If I throw a " + nouns.pick().word + " do you think my dog will chase after it?", "Do you think that cats dream about " + nouns.pick().word + " while they sleep all day?", "Uhhh, I don't think cats are supposed to eat " + nouns.pick().word + ".", "The world is ending! My ferret now has a " + nouns.pick().word + " and that means the end for us all.", "How many " + pluralize(nouns.pick().word) + " is too many for one pet fish?", "Just met my friend's new puppy, " + capitalize(nouns.pick().word) + ". So cute!", "My friend found a cat inside of a " + nouns.pick().word + " today. Don't think that was supposed to be there.", "Just bought a " + nouns.pick().word + " for my bird. I hope he likes it.", "Should I be concerned if my cat keeps bringing me " + nouns.pick().word + "?", pluralize(nouns.pick().word) + " are really the best toys for puppies.", "My dogs are always fighting over who gets to play with the " + nouns.pick().word, "I just discovered a new species of bat. They only eat " + nouns.pick().word
 			// etc.			
 		];
 		
 		///----- NOW DO THE BOT STUFF
 		var rand = Math.random();
 
- 		if(rand < 1.0 && rand > 0.90) {      
+ 		if(rand < 1.0 && rand > 0.80) {      
 			console.log("-------Tweet something");
 			tweet();
 			
-		} else if (rand <= 0.90 && rand > 0.81) {
+		} else if (rand <= 0.80 && rand > 0.60) {
 			console.log("-------Retweet something tagged with #dog");
 			retweetDog();
 			
-		} else if (rand <= 0.81 && rand > 0.72) {
+		} else if (rand <= 0.60 && rand > 0.40) {
 			console.log("-------Retweet something tagged with #puppy");
 			retweetPuppy();
-		} else if (rand <= 0.72 && rand > 0.63) {
+		} else if (rand <= 0.40 && rand > 0.20) {
             console.log("-------Retweet something tagged with #cats");
             retweetCat();
-        } else if (rand <= 0.63 && rand > 0.54){
+        } else {
             console.log("-------Retweet something tagged with #kitten");
             retweetKitten();
-        } else if (rand <= 0.54 && rand > 0.45){
-            console.log("-------Retweet something tagged with #parrot");
-            retweetParrot();
-        } else if (rand <= 0.45 && rand > 0.36){
-            console.log("-------Retweet something tagged with #turtle");
-            retweetTurtle();
-        } else if (rand <= 0.36 && rand > 0.27){
-            console.log("-------Retweet something tagged with #ferret");
-            retweetFerret();
-        } else if (rand <= 0.27 && rand > 0.18){
-            console.log("-------Retweet something tagged with #bird");
-            retweetBird();
-        } else if (rand <= 0.18 && rand > 0.11){
-            console.log("-------Retweet something tagged with #hamster");
-            retweetHamster();
-        } else {
-            console.log("-------Retweet something tagged with #snake");
-            retweetSnake();
         }
 	});
 }
 
 // Run the bot
 runBot();
+runPicBot();
 
 // And recycle every 5 minutes
 setInterval(runBot, 1000 * 60 * 5);			
