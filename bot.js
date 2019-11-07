@@ -168,8 +168,8 @@ function runPicBot() {
     request("https://api.unsplash.com/photos/random?query=cat&client_id=" + API, function(error, response,data) {
         var json = JSON.parse(data);
         // var text = pre.pick();
-        post = "I found some cat photos! /n" + json.links.html;
-        T.post('status/update', {status:post}, function(err, data, response) {
+        post = "I found some cat photos! " + json.links.html;
+        T.post('statuses/update', {status:post}, function(err, data, response) {
 			if (response) {
 				console.log('Success! Check your bot, it should have twittered photos.')
 			}
