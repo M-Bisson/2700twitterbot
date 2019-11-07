@@ -5,37 +5,37 @@ var Twit = require('twit');
 var T = new Twit(require('./config.js'));
 
 // This is the URL of a search for the latest tweets on the '#cats' hashtag.
-var catsSearch = {q: "#cats", count: 10, result_type: "recent"}; 
+var catsSearch = {q: "#cats", count: 3, result_type: "recent"}; 
 
 //This is the URl of a search for the latest tweets on the "#kitten' hashtag.
-var kittenSearch = {q: "#kitten", count: 10, result_type: "recent"};
+var kittenSearch = {q: "#kitten", count: 3, result_type: "recent"};
 
 // This is the URL of a search for the latest tweets on the '#dog' hashtag.
-var dogSearch = {q: "#dog", count: 10, result_type: "recent"}; 
+var dogSearch = {q: "#dog", count: 3, result_type: "recent"}; 
 
 // This is the URL of a search for the latest tweets on the '#puppy' hashtag.
-var puppySearch = {q: "#puppy", count: 10, result_type: "recent"};
+var puppySearch = {q: "#puppy", count: 3, result_type: "recent"};
 
 // This is the URL of a search for the latest tweets on the '#puppy' hashtag.
-var parrotSearch = {q: "#parrot", count: 10, result_type: "recent"};
+var parrotSearch = {q: "#parrot", count: 3, result_type: "recent"};
 
 // This is the URL of a search for the latest tweets on the '#puppy' hashtag.
-var turtleSearch = {q: "#turtle", count: 10, result_type: "recent"};
+var turtleSearch = {q: "#turtle", count: 3, result_type: "recent"};
 
 // This is the URL of a search for the latest tweets on the '#puppy' hashtag.
-var ferretSearch = {q: "#ferret", count: 10, result_type: "recent"};
+var ferretSearch = {q: "#ferret", count: 3, result_type: "recent"};
 
 // This is the URL of a search for the latest tweets on the '#puppy' hashtag.
-var birdSearch = {q: "#bird", count: 10, result_type: "recent"};
+var birdSearch = {q: "#bird", count: 3, result_type: "recent"};
 
 // This is the URL of a search for the latest tweets on the '#puppy' hashtag.
-var hamsterSearch = {q: "#hamster", count: 10, result_type: "recent"};
-
+var hamsterSearch = {q: "#hamster", count: 3, result_type: "recent"};
+ 
 // This is the URL of a search for the latest tweets on the '#puppy' hashtag.
-var snakeSearch = {q: "#snake", count: 10, result_type: "recent"};
+var snakeSearch = {q: "#snake", count: 3, result_type: "recent"};
 
 // This function finds the latest tweet with the #cats hashtag, and retweets it.
-function retweetCat() {
+function retweetCats() {
 	T.get('search/tweets', catsSearch, function (error, data) {
 	  // log out any errors and responses
 	  console.log(error, data);
@@ -333,7 +333,7 @@ function nounUrl(minCorpusCount, limit) {
 	return "http://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=false&includePartOfSpeech=noun&minCorpusCount=" + minCorpusCount + "&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&limit=" + limit + "&api_key=" + WordnikAPIKey;
 }
 
-// Post a status update
+// Post a tweet about animals
 function tweet() {
 
 	var tweetText = pre.pick();
@@ -401,6 +401,109 @@ function respondToMention() {
 	});
 }
 
+
+var request = require("request");
+var API="ae92b91f8c12b23e540ed36c6a4dacc5902f0cc47e42482d6ef0b624b5f01ab0";
+var post;
+
+// Tweet a picture of a cat
+function runPicBotCat() {
+    request("https://api.unsplash.com/photos/random?query=cat&client_id=" + API, function(error, response,data) {
+        var json = JSON.parse(data);
+        // var text = pre.pick();
+        post = "I found some cat photos! " + json.links.html;
+        T.post('statuses/update', {status:post}, function(err, data, response) {
+			if (response) {
+				console.log('Success! Check your bot, it should have twittered photos.')
+			}
+			// If there was an error with our Twitter call, we print it out here.
+			if (error) {
+				console.log('There was an error with Twitter:', error);
+			}
+        })
+    })
+}
+
+// Tweet a picture of a dog
+function runPicBotDog() {
+    request("https://api.unsplash.com/photos/random?query=dog&client_id=" + API, function(error, response,data) {
+        var json = JSON.parse(data);
+        // var text = pre.pick();
+        post = "Look at this dog! " + json.links.html;
+        T.post('statuses/update', {status:post}, function(err, data, response) {
+			if (response) {
+				console.log('Success! Check your bot, it should have twittered photos.')
+			}
+			// If there was an error with our Twitter call, we print it out here.
+			if (error) {
+				console.log('There was an error with Twitter:', error);
+			}
+        })
+    })
+}
+
+// tweet a picture of a turtle
+function runPicBotTurtle() {
+    request("https://api.unsplash.com/photos/random?query=turtle&client_id=" + API, function(error, response,data) {
+        var json = JSON.parse(data);
+        // var text = pre.pick();
+        post = "I love turtles! " + json.links.html;
+        T.post('statuses/update', {status:post}, function(err, data, response) {
+			if (response) {
+				console.log('Success! Check your bot, it should have twittered photos.')
+			}
+			// If there was an error with our Twitter call, we print it out here.
+			if (error) {
+				console.log('There was an error with Twitter:', error);
+			}
+        })
+    })
+}
+
+// Tweet a picture of a bird
+function runPicBotBird() {
+    request("https://api.unsplash.com/photos/random?query=bird&client_id=" + API, function(error, response,data) {
+        var json = JSON.parse(data);
+        // var text = pre.pick();
+        post = "Birds are so pretty! " + json.links.html;
+        T.post('statuses/update', {status:post}, function(err, data, response) {
+			if (response) {
+				console.log('Success! Check your bot, it should have twittered photos.')
+			}
+			// If there was an error with our Twitter call, we print it out here.
+			if (error) {
+				console.log('There was an error with Twitter:', error);
+			}
+        })
+    })
+}
+
+//Post a tweet with a video link
+function runVideoBot() {
+
+ var rand = Math.random();
+ 
+        if(rand < 1.0 && rand > 0.75) {      
+            post = "enjoy some music while you look at cute animal pictures https://www.youtube.com/watch?v=yaKeFoNOneg" 
+        } else if (rand <= 0.75 && rand > 0.5) {
+            post = "take a look at this cute fox https://www.youtube.com/watch?v=_AtP7au_Q9w"
+        } else if (rand <= 0.5 && rand > 0.25) {
+            post = "squirrels are soooooo cute!  https://www.youtube.com/watch?v=qFzfY74lB1M"
+        } else{
+            post = "lovely otter enjoying his life! https://www.youtube.com/watch?v=4eFNPKXCtZ4"
+        }
+        T.post('statuses/update', {status:post}, function(error, data, response) {
+            if (response) {
+                console.log('Success! Check your bot, it should have twittered videos.')
+            }
+            // If there was an error with our Twitter call, we print it out here.
+            if (error) {
+                console.log('There was an error with Twitter:', error);
+            }
+        })
+}
+
+
 function runBot() {
 	console.log(" "); // just for legible logs
 	var d=new Date();
@@ -452,31 +555,48 @@ function runBot() {
 		} else if (rand <= 0.81 && rand > 0.72) {
 			console.log("-------Retweet something tagged with #puppy");
 			retweetPuppy();
-		} else if (rand <= 0.72 && rand > 0.63) {
+		} else if (rand <= 0.72 && rand > 0.65) {
             console.log("-------Retweet something tagged with #cats");
-            retweetCat();
-        } else if (rand <= 0.63 && rand > 0.54){
+            retweetCats();
+        } else if (rand <= 0.65 && rand > 0.60){
             console.log("-------Retweet something tagged with #kitten");
             retweetKitten();
+        } else if (rand <= 0.60 && rand > 0.54) {
+            console.log("-------Post a tweet with a video link");
+            runVideoBot();
         } else if (rand <= 0.54 && rand > 0.45){
             console.log("-------Retweet something tagged with #parrot");
             retweetParrot();
-        } else if (rand <= 0.45 && rand > 0.36){
+        } else if (rand <= 0.45 && rand > 0.40){
             console.log("-------Retweet something tagged with #turtle");
             retweetTurtle();
-        } else if (rand <= 0.36 && rand > 0.27){
+        } else if (rand <= 0.40 && rand > 0.35){
             console.log("-------Retweet something tagged with #ferret");
             retweetFerret();
-        } else if (rand <= 0.27 && rand > 0.18){
+        } else if (rand <= 0.35 && rand > 0.30){
             console.log("-------Retweet something tagged with #bird");
             retweetBird();
-        } else if (rand <= 0.18 && rand > 0.11){
+        } else if (rand <= 0.30 && rand > 0.25){
             console.log("-------Retweet something tagged with #hamster");
             retweetHamster();
-        } else {
+        } else if (rand <= 0.25 && rand > 0.20) {
             console.log("-------Retweet something tagged with #snake");
             retweetSnake();
+        } else if (rand <= 0.20 && rand > 0.15) {
+            console.log("-------Tweet a cat picture");
+            runPicBotCat();
+        } else if (rand <= 0.15 && rand > 0.10) {
+            console.log("-------Tweet a dog picture");
+            runPicBotDog();
+        } else if (rand <= 0.10 && rand > 0.05) {
+            console.log("-------Tweet a bird picture");
+            runPicBotBird();
+        } else {
+            console.log("-------Tweet a turtle picture");
+            runPicBotTurtle();
         }
+        
+        runVideoBot();
 	});
 }
 
